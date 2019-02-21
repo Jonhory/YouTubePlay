@@ -45,7 +45,7 @@ typedef NS_ENUM(NSUInteger ,AVAudioItemType){
 /**
  设置资源类型 默认是普通音频
 
- @param type
+ @param type dd
  */
 - (void)setCurrentItemType:(AVAudioItemType)type;
 

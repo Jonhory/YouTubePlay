@@ -15,6 +15,7 @@ class MusicViewController: BaseViewController {
     let downloadManager = JHDownloadManager()
     let tf = UITextField()
     var musicModels: [MusicModel] = []
+    lazy var player = AVAudioManager.shared()!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -24,9 +25,19 @@ class MusicViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        config(leftStr: nil, leftHelpStr: nil, titleStr: "Musics", rightHelpStr: nil, rightStr: "全部删除")
+        config(leftStr: "暂停", leftHelpStr: nil, titleStr: "Musics", rightHelpStr: nil, rightStr: "全部删除")
         
         loadUI()
+    }
+    
+    override func leftBtnClicked(btn: UIButton) {
+        if player.isPlaying {
+            player.pause()
+            btn.setTitle("播放", for: .normal)
+        } else {
+            player.play()
+            btn.setTitle("暂停", for: .normal)
+        }
     }
     
     override func rightBtnClicked(btn: UIButton) {

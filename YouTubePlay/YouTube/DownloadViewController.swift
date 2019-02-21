@@ -32,9 +32,16 @@ class DownloadViewController: BaseViewController {
 
 //        navigationController?.navigationBar.prefersLargeTitles = true
         
-        config(leftStr: nil, leftHelpStr: nil, titleStr: "Download", rightHelpStr: nil, rightStr: "粘贴url")
+        config(leftStr: "第三方解析", leftHelpStr: nil, titleStr: "Download", rightHelpStr: nil, rightStr: "粘贴url")
         urlTF.text = "http://pgc.cdn.xiaodutv.com/1874370668_866941668_2018030212274320180605013211.mp4?Cache-Control=max-age%3D8640000&responseExpires=Thu%2C+13+Sep+2018+01%3A33%3A10+GMT&xcode=f1e7bc42b5fa7597b59705fed825b4f9d30a07c977a7f21a&time=1550742948&_=1550656554106"
         downloadManager.cachesDirName = "VideoCache"
+    }
+    
+    override func leftBtnClicked(btn: UIButton) {
+        if let u = URL(string: "https://www.tubeninja.net/") {
+            UIApplication.shared.open(u, options: [:], completionHandler: nil)
+        }
+        
     }
     
     override func rightBtnClicked(btn: UIButton) {
